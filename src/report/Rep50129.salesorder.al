@@ -19,6 +19,7 @@ var
     myInt: Integer;
 begin
     Message('on predataitem');
+    "Sales Header".SetRange("No.", orderno);
 end;
 trigger OnPostDataItem()
 var
@@ -31,6 +32,8 @@ var
     myInt: Integer;
 begin
     Message('on aftergetrecord');
+    if "Sales Header"."Sell-to Customer No." = '10000' then
+                    CurrReport.Skip();
 end;
         }
     }
